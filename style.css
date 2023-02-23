@@ -1,0 +1,283 @@
+/* DESKTOP FIRST DESIGN */
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+
+/* MAIN */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* RESULT */
+
+.result {
+    width: 375px;
+    height: 515px;
+    border-radius: 2rem;
+    padding: 2.5rem;
+    background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+}
+
+.your_result {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 2.5rem;
+}
+
+.score {
+    background-image: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 110%;
+}
+
+.great {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.result_text {
+    padding: 0 2rem;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* I had to add a div to fill in the gap between the two cards.
+I tried filling the gap by adding border-left to the right (summary) card,
+but since box-sizing is set to border-box, the border is set on the inside of the card.
+Setting border-box to content-box on the card creates other issues,
+so I figured the easiest way to solve this problem is to add another div to fill in the gap.
+If anyone has a better solution, please let me know! */
+
+.gap_fill {
+    position: absolute;
+    height: 515px;
+    width: 75px;
+    background-color: hsl(0, 0%, 100%);
+    z-index: 50;
+}
+
+/* SUMMARY */
+
+.summary {
+    min-width: 375px;
+    height: 515px;
+    border-radius: 2rem;
+    padding: 2.5rem;
+    background-color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 10px 15px 50px hsla(224, 30%, 27%, 0.15);
+    z-index: 0;
+}
+
+.summary_title {
+    margin: 0;
+    padding: 0;
+}
+
+.cards {
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    border-radius: 0.625rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin: 1rem 0;
+}
+
+.card_title {
+    display: flex;
+}
+
+.card_title p {
+    padding-left: 1rem;
+}
+
+.reaction {
+    font-weight: 800;
+    color: hsl(0, 100%, 67%);
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.memory {
+    font-weight: 800;
+    color: hsl(39, 100%, 56%);
+    background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+.verbal {
+    font-weight: 800;
+    color: hsl(166, 100%, 37%);
+    background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+.visual {
+    font-weight: 800;
+    color: hsla(234, 85%, 45%);
+    background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+.button {
+    background-color: hsl(224, 30%, 27%);
+    border: none;
+    height: 3.5rem;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+}
+
+/* ATTRIBUTION */
+
+.attribution { 
+    font-size: 11px; text-align: center;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/* TYPOGRAPHY */
+
+.your_result {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.number_big {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.your_result, .result_text {
+    color: hsl(221, 100%, 96%);
+}
+
+.number_big, .great {
+    color: hsl(0, 0%, 100%);
+}
+
+.number_small {
+    color: hsl(241, 100%, 89%);
+}
+
+.summary_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(224, 30%, 27%);
+}
+
+.card_score {
+    color: hsl(224, 30%, 27%);
+}
+
+.card_score span {
+    color: hsla(224, 30%, 27%, 0.5);
+}
+
+.button {
+    font-size: 1rem;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+}
+
+/* MEDIA QUERIES */
+
+/* I figured the text is readable as is, so no changes to typography were made. Please let me know if there is something i should pay attention to regarding typography! */
+
+@media (max-width: 750px) {
+    .container {
+        display: unset;
+        position: static;
+    
+    }
+
+    .result {
+        max-height: 425px;
+        min-width: 375px;
+        width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-bottom: 1.5rem;
+    }
+
+    .your_result {
+        padding-bottom: 1.5rem;
+    }
+
+    .score {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .great {
+        margin-top: 1.5rem;
+    }
+
+    .result_text {
+        padding: 0;
+    }
+
+    .summary {
+        height: 475px;
+        box-shadow: none;
+        border-radius: none;
+        padding-top: 1.5rem;
+    }
+
+    .gap_fill {
+        display: none;
+    }
+
+    .attribution {
+        position: static;
+        margin: 0 2.5rem;
+        transform: unset;
+    }
+}
