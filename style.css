@@ -235,16 +235,17 @@ If anyone has a better solution, please let me know! */
     .container {
         display: unset;
         position: static;
-    
     }
 
     .result {
         max-height: 425px;
         min-width: 375px;
+        max-width: 550px;
         width: 100%;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         padding-bottom: 1.5rem;
+        margin: 0 auto;
     }
 
     .your_result {
@@ -266,9 +267,11 @@ If anyone has a better solution, please let me know! */
 
     .summary {
         height: 475px;
+        max-width: 550px;
         box-shadow: none;
         border-radius: none;
         padding-top: 1.5rem;
+        margin: 0 auto;
     }
 
     .gap_fill {
